@@ -1,0 +1,17 @@
+name: Build Docker image
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout myrepo
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build .
